@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Ignite Shop
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+```
+Challenge: Learn how to Next.js works, like API, SSG, SPA, SSR, and more.
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Project:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Functionalities implemented:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- API intregation ecommerce like
+- List products from the API (Stripe)
+- Cart to add and remove products
+- Buy one item or multiple items
+- Success screen
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+###### Knowledges used and learned:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- SEO using Next.js
+- Stitches style library
+- Keen-Slider (Carousels)
+- Image Next.js optimization concepts
+- Data Fetching (Next.js and Axios)
+- Creation of Next.js server API
+- SSG, SSR, SPA
+- Links (prefetch)
+- Hooks (useEffect, useState)
+- ContextApi
+- Filters, Maps
 
-## Learn More
+#### Techs:
 
-To learn more about Next.js, take a look at the following resources:
+[<img height="32em" alt="Rickelme used Typescript" src="https://www.svgrepo.com/show/349540/typescript.svg" />][ts]
+[<img height="32em" alt="Rickelme used Vite" src="https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2.0,f_auto,g_center,h_1080,q_100,w_1080/v1/gcs/platform-data-dsc/events/nextjs-boilerplate-logo.png" />][nextjs]
+[<img height="32em" alt="Rickelme used Vite" src="https://www.svgrepo.com/show/354259/react.svg" />][react]
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### How to run:
 
-## Deploy on Vercel
+Step zero, configure the `.env.local` file: 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```env
+NEXT_URL=http://localhost:3000
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+STRIPE_PUBLIC_KEY=your_stripe_public_key
+STRIPE_SECRET_KEY=your_stripe_secret_key
+```
+
+First, install and run the development server:
+
+```bash
+npm install
+
+npm run dev
+```
+
+[react]: https://reactjs.org/docs/getting-started.html
+[nextjs]: https://nextjs.org/
+[ts]:https://www.typescriptlang.org/docs/
