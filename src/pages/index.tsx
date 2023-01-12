@@ -8,18 +8,18 @@ import 'keen-slider/keen-slider.min.css'
 import { stripe } from "../lib/stripe";
 import { GetStaticProps } from "next";
 import Stripe from "stripe";
+import Link from "next/link";
 
 interface HomeProps {
   products: {
     id: string;
     name: string;
     imageUrl: string;
-    price: number;
+    price: string;
   }[]
 }
  
-export default function Home({ products }: HomeProps) {
-  
+export default function Home({ products }: HomeProps) {  
   const [ sliderRef ] = useKeenSlider({
     slides: {
       perView: 3,
@@ -31,13 +31,15 @@ export default function Home({ products }: HomeProps) {
     <HomeContainer ref={sliderRef} className="keen-slider">
       {products.map(p => {
         return (
-          <Product className="keen-slider__slide" key={p.id}>
+          <Link href={`/product/${p.id}`} key={p.id} prefetch={false}>
+          <Product className="keen-slider__slide" >
             <Image src={p.imageUrl} alt={""} width={520} height={480} />
             <footer>
               <strong>{p.name}</strong>
               <span>{p.price}</span>
             </footer>
           </Product>
+          </Link>
         )
       })}
     </HomeContainer>
@@ -50,14 +52,19 @@ export const getStaticProps: GetStaticProps = async () => {
   })
 
   const products = res.data.map(p => {
-    const price = p.default_price as Stripe.Price
-
-    return {
-      id: p.id,
-      name: p.name,
-      imageUrl: p.images[0],
-      price: price.unit_amount,
-    }
+    const price = p.default_price as Stripe.Price 
+    if (price.unit_amount != null) 
+      return {
+        id: p.id,
+        name: p.name,
+        imageUrl: p.images[0],
+        price: new Intl.NumberFormat('pt-BR', {
+          style: 'currency',
+          currency: 'BRL'
+        }).format(price.unit_amount/100),
+      }
+    else
+      return {}
   })
 
   return {
