@@ -5,12 +5,17 @@ export const Container = styled('div', {
     flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'center',
-    minHeight: '100vh'
+    minHeight: '100vh',
 })
 
-export const Header = styled('header', {
-    padding: '2rem 0',
-    width: '100%',
-    maxWidth: 1100,
-    margin: '0 auto'
+export const CartController = styled('div', {
+    '.cart--open-true': {
+        opacity: 1,
+        animation: '0.2s ease-in-out'
+    },
+    '.cart--open-false': {
+        display: 'none',
+        opacity: 0,
+        animation: '0.2s ease-in-out'
+    },
 })

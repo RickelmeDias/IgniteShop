@@ -9,6 +9,7 @@ import { stripe } from "../lib/stripe";
 import { GetStaticProps } from "next";
 import Stripe from "stripe";
 import Link from "next/link";
+import { Handbag } from "phosphor-react";
 
 interface HomeProps {
   products: {
@@ -35,8 +36,11 @@ export default function Home({ products }: HomeProps) {
           <Product className="keen-slider__slide" >
             <Image src={p.imageUrl} alt={""} width={520} height={480} />
             <footer>
-              <strong>{p.name}</strong>
-              <span>{p.price}</span>
+              <p>
+                <strong>{p.name}</strong>
+                <span>{p.price}</span>
+              </p>
+              <button><Handbag size={32} weight="bold" /></button>
             </footer>
           </Product>
           </Link>
